@@ -1,528 +1,653 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Caah's Donut & Coffee | Late-Night Comfort Café in Shah Alam</title>
-  <meta name="description" content="Savor hand-glazed premium donuts and masterfully crafted coffee at Caah’s Donut & Coffee, Shah Alam. 4.9★ stars of decadent late-night indulgence.">
-  <meta name="theme-color" content="#0C0907">
-  
-  <!-- CSS Stylesheets -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            darkbg: '#0C0907',
-            caramel: '#C68B59',
-            cream: '#F5EBE6',
-          }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAAH'S DONUT | Soft & Fluffy Donut Susu Legend</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        milk: '#FDFFFF',
+                        royalBlue: '#0F52BA',
+                        sunnyYellow: '#FFD700',
+                        cream: '#FFFDD0',
+                        deepBlue: '#0A3982'
+                    },
+                    boxShadow: {
+                        'donut': '0 10px 30px -5px rgba(15, 82, 186, 0.15)',
+                        'donut-hover': '0 20px 40px -5px rgba(15, 82, 186, 0.25)',
+                        'yellow-glow': '0 8px 24px -4px rgba(255, 215, 0, 0.4)'
+                    }
+                }
+            }
         }
-      }
-    }
-  </script>
-  <link rel="stylesheet" href="styles.css">
-
-  <!-- GSAP Animation Library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+    </script>
+    <!-- Google Fonts: Plus Jakarta Sans for a clean, friendly aesthetic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="bg-darkbg text-cream font-sans relative antialiased selection:bg-amber-100 selection:text-darkbg overflow-x-hidden">
+<body class="bg-milk text-slate-800 font-['Plus_Jakarta_Sans'] overflow-x-hidden selection:bg-sunnyYellow selection:text-royalBlue">
 
-  <!-- Grain Overlay -->
-  <div class="grain-overlay"></div>
-
-  <!-- Premium Preloader Screen -->
-  <div id="preloader" class="fixed inset-0 z-[10000] bg-darkbg flex flex-col items-center justify-center">
-    <div class="text-center px-6">
-      <div class="inline-block relative mb-4">
-        <span class="text-xs uppercase tracking-[0.4em] text-neutral-500 font-semibold block animate-pulse">CRAFTING BLISS</span>
-        <h2 class="text-4xl md:text-5xl font-syne font-bold text-amber-100 mt-2 tracking-wide">Caah’s</h2>
-        <p class="text-[10px] tracking-[0.3em] text-caramel font-light uppercase mt-1">Donut & Coffee</p>
-      </div>
-      <!-- Luxurious infinite thin line loader -->
-      <div class="w-48 h-[2px] bg-neutral-900 rounded-full mx-auto overflow-hidden relative mt-4">
-        <div class="absolute h-full w-1/2 bg-gradient-to-r from-transparent via-amber-200 to-transparent animate-[shimmer_1.5s_infinite] left-0"></div>
-      </div>
-    </div>
-  </div>
-
-  <style>
-    @keyframes shimmer {
-      0% { transform: translateX(-100%); }
-      100% { transform: translateX(200%); }
-    }
-  </style>
-
-  <!-- Ambient Light Effects -->
-  <div class="cinematic-glow top-0 left-1/4"></div>
-  <div class="cinematic-glow top-[40%] right-10"></div>
-  <div class="cinematic-glow bottom-0 left-1/3"></div>
-
-  <!-- Global Header / Premium Navigation -->
-  <header class="fixed top-0 left-0 w-full z-50 glass-panel border-b border-neutral-900/60 py-4 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-      
-      <!-- Brand Logo Area -->
-      <a href="#" class="flex items-center gap-2 group z-50">
-        <span class="font-syne text-xl md:text-2xl font-bold tracking-tight text-cream group-hover:text-amber-100 transition-colors">
-          Caah’s <span class="text-xs tracking-widest text-[#C68B59] font-playfair font-normal italic block md:inline md:ml-1">Donut & Coffee</span>
-        </span>
-      </a>
-
-      <!-- Desktop Elegant Navigation -->
-      <nav class="hidden md:flex items-center gap-8 text-xs tracking-widest font-semibold uppercase text-neutral-300">
-        <a href="#hero" class="hover:text-amber-100 transition-colors py-2 relative group">
-          Home
-          <span class="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#C68B59] transition-all duration-300 group-hover:w-full"></span>
-        </a>
-        <a href="#menu" class="hover:text-amber-100 transition-colors py-2 relative group">
-          The Menu
-          <span class="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#C68B59] transition-all duration-300 group-hover:w-full"></span>
-        </a>
-        <a href="#story" class="hover:text-amber-100 transition-colors py-2 relative group">
-          Our Vibe
-          <span class="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#C68B59] transition-all duration-300 group-hover:w-full"></span>
-        </a>
-        <a href="#gallery" class="hover:text-amber-100 transition-colors py-2 relative group">
-          Gallery
-          <span class="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#C68B59] transition-all duration-300 group-hover:w-full"></span>
-        </a>
-        <a href="#location" class="hover:text-amber-100 transition-colors py-2 relative group">
-          Locate Us
-          <span class="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#C68B59] transition-all duration-300 group-hover:w-full"></span>
-        </a>
-      </nav>
-
-      <!-- Utility Audio Toggle + Social link Integration -->
-      <div class="flex items-center gap-4 z-50">
-        <button id="sound-toggle" class="p-2.5 rounded-full border border-neutral-800/80 bg-neutral-950/20 text-cream/80 hover:bg-neutral-950 transition-all flex items-center justify-center" aria-label="Toggle Sound System">
-          <i data-lucide="volume-x" class="w-5 h-5"></i>
-        </button>
-
-        <a href="https://linktr.ee" target="_blank" rel="noopener" class="hidden sm:inline-block px-5 py-2.5 text-xs uppercase tracking-wider bg-amber-100 text-darkbg rounded-full font-bold hover:bg-white transition-all shadow-md shadow-amber-200/10">
-          Order Online
-        </a>
-
-        <!-- Mobile Menu Toggle Button -->
-        <button id="mobile-menu-toggle" class="md:hidden p-2 text-cream hover:text-amber-100 transition-colors" aria-label="Open Menu">
-          <i data-lucide="menu" class="w-6 h-6" id="menu-icon"></i>
-        </button>
-      </div>
+    <!-- Decorative Top Accent Bar -->
+    <div class="bg-royalBlue text-white text-xs py-2 px-4 text-center font-semibold tracking-wider flex items-center justify-center gap-2 overflow-hidden whitespace-nowrap">
+        <span class="inline-block animate-pulse w-2 h-2 rounded-full bg-sunnyYellow"></span>
+        FREE SHIPPING ON YOUR FIRST BOX OF SUPREME MILK DONUTS! • JOIN MEMBERSHIP TO CLAIM
     </div>
 
-    <!-- Mobile Navigation Overlay -->
-    <div id="mobile-nav" class="fixed inset-0 top-0 left-0 w-full h-screen bg-[#0C0907]/98 z-40 hidden flex-col justify-center items-center gap-6 px-8 text-2xl font-syne text-center">
-      <div class="absolute top-24 left-0 w-full flex flex-col items-center">
-        <p class="text-xs tracking-[0.3em] text-[#C68B59] font-bold uppercase mb-2">Caah's Donut & Coffee</p>
-        <span class="w-8 h-[1px] bg-neutral-800"></span>
-      </div>
-      <a href="#hero" class="nav-link-item hover:text-amber-100 transition-colors py-2 text-white font-medium block">Home</a>
-      <a href="#menu" class="nav-link-item hover:text-amber-100 transition-colors py-2 text-white font-medium block">The Menu</a>
-      <a href="#story" class="nav-link-item hover:text-amber-100 transition-colors py-2 text-white font-medium block">Our Vibe</a>
-      <a href="#gallery" class="nav-link-item hover:text-amber-100 transition-colors py-2 text-white font-medium block">Gallery</a>
-      <a href="#location" class="nav-link-item hover:text-amber-100 transition-colors py-2 text-white font-medium block">Locate Us</a>
-      <a href="https://linktr.ee" target="_blank" class="nav-link-item inline-block text-center mt-6 px-8 py-3.5 text-sm bg-amber-100 text-darkbg rounded-full font-bold uppercase tracking-wider w-full max-w-xs">
-        Order Online
-      </a>
-    </div>
-  </header>
-
-  <!-- 1. HERO SECTION -->
-  <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden px-6 pt-24 pb-20 border-b border-neutral-900/50">
-    <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-      
-      <!-- Text & Brand Hero Elements -->
-      <div class="lg:col-span-7 flex flex-col justify-center space-y-6 z-10 text-center lg:text-left">
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#C68B59]/30 bg-[#C68B59]/5 self-center lg:self-start hero-text">
-          <span class="w-2 h-2 rounded-full bg-[#C68B59] animate-pulse"></span>
-          <span class="text-[10px] tracking-[0.2em] font-bold uppercase text-amber-200">Shah Alam's Late-Night Sanctuary</span>
-        </div>
-
-        <h1 class="text-5xl sm:text-6xl xl:text-7xl font-bold font-syne leading-tight tracking-tight text-white hero-text">
-          Fresh Donuts.<br />
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-100 via-amber-200 to-amber-50">Serious Coffee.</span>
-        </h1>
-
-        <p class="text-base sm:text-lg text-neutral-300 font-light max-w-xl mx-auto lg:mx-0 leading-relaxed hero-text">
-          Step into Shah Alam's ultimate aesthetic escape. From 24-hour slow fermented artisan donuts to robust dark roasts that fuel local creative minds till late.
-        </p>
-
-        <!-- CTA Action Buttons -->
-        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4 hero-text">
-          <a href="#menu" class="w-full sm:w-auto px-8 py-4 bg-amber-100 hover:bg-white text-darkbg text-sm font-semibold tracking-wider rounded-xl transition-all shadow-xl shadow-amber-950/20 text-center hover:scale-[1.02] active:scale-[0.98]">
-            Explore Menu
-          </a>
-          <a href="#location" class="w-full sm:w-auto px-8 py-4 bg-neutral-900/80 hover:bg-neutral-850 text-cream text-sm font-medium tracking-wider rounded-xl border border-neutral-800 transition-all text-center hover:scale-[1.02] active:scale-[0.98]">
-            Visit Us Tonight
-          </a>
-        </div>
-      </div>
-
-      <!-- Gorgeous Interactive Visual Area (Donut & Coffee Float representation) -->
-      <div class="lg:col-span-5 relative flex items-center justify-center min-h-[350px] hero-visual z-10">
-        <!-- Main Floating Donut Mockup Graphic representation -->
-        <div class="relative w-72 h-72 md:w-85 md:h-85 bg-neutral-950 rounded-full border border-neutral-800 flex items-center justify-center shadow-2xl overflow-hidden group">
-          <img 
-            src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&q=80&w=800" 
-            alt="Artisanal Hand-Glazed Donut" 
-            class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-[6000ms] ease-out"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-darkbg via-transparent to-transparent"></div>
-          
-          <!-- Inner circle badge style layout for coffee steam element -->
-          <div class="absolute bottom-6 left-6 right-6 p-4 glass-panel rounded-xl text-center">
-            <div class="steam-container mb-2">
-              <div class="steam-line"></div>
-              <div class="steam-line"></div>
-              <div class="steam-line"></div>
-            </div>
-            <p class="text-[10px] tracking-widest uppercase font-semibold text-amber-200">Fresh Brew Steam Active</p>
-          </div>
-        </div>
-
-        <!-- Tiny floating decorative donuts/coffee beans layout for visual depth -->
-        <div class="absolute -top-6 -right-4 w-28 h-28 rounded-full border border-neutral-800 overflow-hidden animate-float-slow hidden md:block">
-          <img src="https://images.unsplash.com/photo-1530610476181-d83430b64dcd?auto=format&fit=crop&q=80&w=300" alt="Specialty Glazed Dough" class="w-full h-full object-cover opacity-90" />
-        </div>
-
-        <div class="absolute -bottom-6 -left-4 w-24 h-24 rounded-full border border-neutral-800 overflow-hidden animate-float-reverse hidden md:block">
-          <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&q=80&w=300" alt="Specialty Coffee" class="w-full h-full object-cover opacity-90" />
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- 2. SOCIAL PROOF & METRICS -->
-  <section class="py-16 bg-neutral-950/40 border-b border-neutral-900/50">
-    <div class="max-w-7xl mx-auto px-6">
-      
-      <!-- Metrics Row -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 text-center">
-        <div class="p-6">
-          <div class="text-4xl md:text-5xl font-bold font-syne text-amber-100 mb-2">4.9★</div>
-          <p class="text-xs uppercase tracking-widest text-neutral-400">Google & Social Rating</p>
-        </div>
-        <div class="p-6 border-y md:border-y-0 md:border-x border-neutral-900">
-          <div class="text-4xl md:text-5xl font-bold font-syne text-amber-100 mb-2">1,900+</div>
-          <p class="text-xs uppercase tracking-widest text-neutral-400">Verified Guest Reviews</p>
-        </div>
-        <div class="p-6">
-          <div class="text-4xl md:text-5xl font-bold font-syne text-amber-100 mb-2">10 AM - Late</div>
-          <p class="text-xs uppercase tracking-widest text-neutral-400">Everyday Comfort Hangout</p>
-        </div>
-      </div>
-
-      <!-- Testimonials Dynamic Showcase -->
-      <div class="mb-12">
-        <div class="text-center max-w-2xl mx-auto mb-10">
-          <h2 class="text-2xl md:text-3xl font-bold font-syne text-white mb-2">Loved by the Community</h2>
-          <p class="text-sm text-neutral-400">Hear directly from the foodies, students, and nighttime workers of Shah Alam.</p>
-        </div>
-
-        <!-- Custom grid container filled by app.js -->
-        <div id="testimonials-list" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <!-- Placeholder dynamic content -->
-        </div>
-      </div>
-
-      <!-- Guest Book review submission box to increase interactivity -->
-      <div class="max-w-xl mx-auto glass-panel-light rounded-2xl p-6 border-neutral-900/60 mt-8">
-        <h3 class="text-sm uppercase tracking-wider text-amber-200/90 font-semibold mb-3">Leave Your Note on Our Wall</h3>
-        <div class="space-y-3">
-          <input id="review-name" type="text" placeholder="Your Name" class="w-full bg-neutral-950 border border-neutral-800 rounded-lg px-4 py-2.5 text-sm text-cream placeholder-neutral-500 focus:outline-none focus:border-amber-200" />
-          <textarea id="review-text" rows="2" placeholder="Tell Shah Alam your favorite donut pairing..." class="w-full bg-neutral-950 border border-neutral-800 rounded-lg px-4 py-2.5 text-sm text-cream placeholder-neutral-500 focus:outline-none focus:border-amber-200"></textarea>
-          <button id="submit-review-btn" class="w-full bg-amber-100 text-darkbg hover:bg-white text-xs font-semibold py-2.5 rounded-lg tracking-wider transition-colors">
-            Post Anonymously
-          </button>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- 3. MENU SHOWCASE -->
-  <section id="menu" class="py-24 border-b border-neutral-900/50 relative">
-    <div class="max-w-7xl mx-auto px-6">
-      
-      <div class="text-center max-w-2xl mx-auto mb-12">
-        <span class="text-[10px] tracking-[0.25em] font-semibold text-amber-100/70 uppercase">Decadent Crafts</span>
-        <h2 class="text-3xl md:text-5xl font-bold font-syne text-white mt-2 mb-3">Explore the Menu</h2>
-        <p class="text-sm text-neutral-400 leading-relaxed">Everything is prepared daily under artisan supervision. Pair any fresh donut with our signature dark specialty roast.</p>
-      </div>
-
-      <!-- Dynamic Tab filter navigation -->
-      <div id="menu-tabs" class="flex justify-start md:justify-center items-center gap-3 overflow-x-auto pb-4 mb-10 no-scrollbar">
-        <!-- Filled dynamically by JavaScript -->
-      </div>
-
-      <!-- Menu Grid Showcase -->
-      <div id="menu-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 min-h-[400px]">
-        <!-- Rendered dynamically from data.json -->
-      </div>
-
-      <!-- Quick note -->
-      <p class="text-center text-xs text-neutral-500 mt-8 italic">
-        * Vegetarian friendly ingredients. Halal certified suppliers. Made fresh in small batches everyday.
-      </p>
-
-    </div>
-  </section>
-
-  <!-- 4. BRAND STORY -->
-  <section id="story" class="py-24 bg-neutral-950/20 border-b border-neutral-900/50">
-    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-      
-      <div class="lg:col-span-5 relative">
-        <div class="h-[450px] w-full rounded-2xl overflow-hidden border border-neutral-800 relative group">
-          <img 
-            src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&q=80&w=800" 
-            alt="Interior premium mood photo" 
-            class="h-full w-full object-cover opacity-80 transition-transform duration-[6000ms] group-hover:scale-110"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-darkbg via-transparent to-transparent"></div>
-          <div class="absolute bottom-6 left-6 p-6 glass-panel rounded-xl">
-            <span class="text-[9px] uppercase tracking-widest text-[#C68B59] font-bold">Midnight Ritual</span>
-            <p class="text-sm text-neutral-200 mt-1">"The light is always warm, the coffee always strong."</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="lg:col-span-7 space-y-6">
-        <span class="text-xs tracking-[0.3em] font-bold text-amber-100 uppercase">The Caah's Spirit</span>
-        <h2 class="text-3xl md:text-5xl font-bold font-syne text-white leading-tight">
-          Where Shah Alam Finds Late-Night Comfort
-        </h2>
-        <div class="space-y-4 text-neutral-300 font-light leading-relaxed">
-          <p>
-            Caah’s started from a simple belief: a community deserves a place that welcomes them at any hour. We realized that some of the best conversations, deepest design sketches, and local laughs happen over premium comfort food late at night.
-          </p>
-          <p>
-            We set up in Seksyen 7, Shah Alam, crafting a space with deep, luxury dark aesthetics, warm cinematic lights, and relaxing, low-fi lo-fi beats. We slow-ferment our unique brioche dough for up to 24 hours to give our donuts an unmatched cloud-like fluffiness that contrasts beautifully with our bold premium espresso roasts.
-          </p>
-          <p class="font-playfair italic text-lg text-amber-100/95">
-            "It’s more than just dough and beans; it is a shared lifestyle of nightly sanctuary, focus, and warmth."
-          </p>
-        </div>
-
-        <div class="flex flex-wrap gap-4 pt-4">
-          <div class="flex items-center gap-2 bg-neutral-900 px-4 py-2 rounded-xl border border-neutral-800">
-            <i data-lucide="check-circle-2" class="w-4 h-4 text-[#C68B59]"></i>
-            <span class="text-xs font-medium text-neutral-300">24h Dough Slow Rise</span>
-          </div>
-          <div class="flex items-center gap-2 bg-neutral-900 px-4 py-2 rounded-xl border border-neutral-800">
-            <i data-lucide="check-circle-2" class="w-4 h-4 text-[#C68B59]"></i>
-            <span class="text-xs font-medium text-neutral-300">High-End Specialty Beans</span>
-          </div>
-          <div class="flex items-center gap-2 bg-neutral-900 px-4 py-2 rounded-xl border border-neutral-800">
-            <i data-lucide="check-circle-2" class="w-4 h-4 text-[#C68B59]"></i>
-            <span class="text-xs font-medium text-neutral-300">Aesthetic Workspaces</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- 5. INSTAGRAM MASONRY STYLE GALLERY -->
-  <section id="gallery" class="py-24 border-b border-neutral-900/50">
-    <div class="max-w-7xl mx-auto px-6">
-      
-      <div class="text-center max-w-2xl mx-auto mb-16">
-        <span class="text-xs tracking-[0.3em] font-bold text-[#C68B59] uppercase">Curated Aesthetics</span>
-        <h2 class="text-3xl md:text-5xl font-bold font-syne text-white mt-1 mb-3">On the Grid</h2>
-        <p class="text-sm text-neutral-400">Capture the beautiful moments that make Caah’s of Seksyen 7 an experience worth capturing.</p>
-      </div>
-
-      <!-- Masonry Layout -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div class="space-y-4">
-          <div class="relative overflow-hidden rounded-xl border border-neutral-800 group cursor-pointer">
-            <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&q=80&w=600" alt="Cafe Donut Detail" class="w-full object-cover h-64 group-hover:scale-105 transition-transform duration-500" />
-            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all">
-              <span class="text-xs uppercase tracking-widest font-semibold bg-white text-neutral-950 px-3 py-1 rounded-full">Classic Glaze</span>
-            </div>
-          </div>
-          <div class="relative overflow-hidden rounded-xl border border-neutral-800 group cursor-pointer">
-            <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&q=80&w=600" alt="Iced Brew close-up" class="w-full object-cover h-40 group-hover:scale-105 transition-transform duration-500" />
-          </div>
-        </div>
-
-        <div class="space-y-4">
-          <div class="relative overflow-hidden rounded-xl border border-neutral-800 group cursor-pointer">
-            <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&q=80&w=600" alt="Espresso extraction" class="w-full object-cover h-40 group-hover:scale-105 transition-transform duration-500" />
-          </div>
-          <div class="relative overflow-hidden rounded-xl border border-neutral-800 group cursor-pointer">
-            <img src="https://images.unsplash.com/photo-1530610476181-d83430b64dcd?auto=format&fit=crop&q=80&w=600" alt="Caramel Glazed treat" class="w-full object-cover h-80 group-hover:scale-105 transition-transform duration-500" />
-            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all">
-              <span class="text-xs uppercase tracking-widest font-semibold bg-white text-neutral-950 px-3 py-1 rounded-full">Caramel Dream</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="space-y-4">
-          <div class="relative overflow-hidden rounded-xl border border-neutral-800 group cursor-pointer">
-            <img src="https://images.unsplash.com/photo-1612240498936-65f5101365d2?auto=format&fit=crop&q=80&w=600" alt="Aesthetic setup table" class="w-full object-cover h-72 group-hover:scale-105 transition-transform duration-500" />
-          </div>
-          <div class="relative overflow-hidden rounded-xl border border-neutral-800 group cursor-pointer">
-            <img src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&q=80&w=600" alt="Matcha Drink details" class="w-full object-cover h-48 group-hover:scale-105 transition-transform duration-500" />
-          </div>
-        </div>
-
-        <div class="space-y-4">
-          <div class="relative overflow-hidden rounded-xl border border-neutral-800 group cursor-pointer">
-            <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&q=80&w=600" alt="Donuts box pack" class="w-full object-cover h-48 group-hover:scale-105 transition-transform duration-500" />
-          </div>
-          <div class="relative overflow-hidden rounded-xl border border-neutral-800 group cursor-pointer">
-            <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&q=80&w=600" alt="Interiors lighting mood" class="w-full object-cover h-64 group-hover:scale-105 transition-transform duration-500" />
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- 6. LOCATION & VISIT INFO SECTION -->
-  <section id="location" class="py-24 border-b border-neutral-900/50 bg-[#0C0907]/60">
-    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12">
-      
-      <!-- Info Left Block -->
-      <div class="lg:col-span-5 space-y-6 flex flex-col justify-center">
-        <span class="text-xs tracking-[0.3em] font-semibold text-amber-200 uppercase">Say Hello</span>
-        <h2 class="text-3xl md:text-4xl font-bold font-syne text-white">Join Us in Shah Alam</h2>
-        
-        <p class="text-neutral-400 font-light leading-relaxed text-sm">
-          Nestled inside the vibrant commercial zone of Seksyen 7, we provide an oasis of warm lighting and fresh treats. Come for the sugar glaze, stay for the late-night quiet vibes.
-        </p>
-
-        <!-- Dynamic Service Badges -->
-        <div class="flex items-center gap-3">
-          <span class="px-4 py-2 rounded-full text-xs font-semibold bg-green-500/10 text-green-400 border border-green-500/20 flex items-center gap-2">
-            <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-            Dine-in Open
-          </span>
-          <span class="px-4 py-2 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-400 border border-[#C68B59]/20 flex items-center gap-2">
-            Takeaway Ready
-          </span>
-        </div>
-
-        <!-- Address details -->
-        <div class="space-y-4 pt-4 border-t border-neutral-900 text-sm">
-          <div class="flex items-start gap-3">
-            <i data-lucide="map-pin" class="w-5 h-5 text-amber-100 flex-shrink-0 mt-0.5"></i>
-            <div>
-              <p class="font-medium text-cream">Our Location</p>
-              <address class="not-italic text-neutral-400 text-xs leading-relaxed mt-1">
-                AAG 28, PUSAT KOMERSIAL SEKSYEN 7,<br />
-                Jalan Plumbum Aa 7/Aa, Seksyen 7,<br />
-                40000 Shah Alam, Selangor, Malaysia
-              </address>
-            </div>
-          </div>
-
-          <div class="flex items-center gap-3">
-            <i data-lucide="clock" class="w-5 h-5 text-amber-100"></i>
-            <div>
-              <p class="font-medium text-cream">Opening Hours</p>
-              <p class="text-neutral-400 text-xs mt-0.5">Opens daily at 10:00 AM — Till late nights</p>
-            </div>
-          </div>
-
-          <div class="flex items-center gap-3">
-            <i data-lucide="phone" class="w-5 h-5 text-amber-100"></i>
-            <div>
-              <p class="font-medium text-cream">Hotline</p>
-              <p class="text-neutral-400 text-xs mt-0.5">014-386 6695</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Modern Minimalist Map Area -->
-      <div class="lg:col-span-7">
-        <div class="w-full h-[380px] rounded-2xl border border-neutral-900 overflow-hidden relative shadow-2xl">
-          <!-- Premium Mock Map View with real integration visual & route button -->
-          <div class="absolute inset-0 bg-neutral-950 flex flex-col items-center justify-center p-6 text-center">
-            <!-- Map Decorative Grid Pattern -->
-            <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#C68B59_1px,transparent_1px)] [background-size:16px_16px]"></div>
-            
-            <i data-lucide="map" class="w-12 h-12 text-[#C68B59]/80 mb-4 animate-bounce"></i>
-            <h3 class="text-lg font-bold text-white mb-2 font-syne">Ready to Visit Caah's?</h3>
-            <p class="text-xs text-neutral-400 max-w-sm mb-6 leading-relaxed">We are located close to UiTM Shah Alam Seksyen 7. Launch navigation to experience late-night donuts.</p>
-            
-            <a 
-              href="https://maps.google.com/?q=AAG+28,+PUSAT+KOMERSIAL+SEKSYEN+7,+Jalan+Plumbum+Aa+7/Aa,+Seksyen+7,+40000+Shah+Alam,+Selangor,+Malaysia" 
-              target="_blank" 
-              rel="noopener"
-              class="px-6 py-3 bg-amber-100 hover:bg-white text-darkbg font-bold text-xs rounded-xl tracking-wider uppercase transition-all flex items-center gap-2"
-            >
-              <i data-lucide="navigation" class="w-4 h-4"></i>
-              Get Directions via Google Maps
+    <!-- Navigation -->
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-blue-50/60 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <img src="assets/7d54c0f2338e8247_caahs.png" alt="CAAH'S DONUT" class="h-14 w-auto transform transition-transform group-hover:scale-105 duration-300">
             </a>
-          </div>
+
+            <!-- Desktop Menu Links -->
+            <nav class="hidden md:flex items-center gap-8 font-medium text-slate-600">
+                <a href="#hero" class="hover:text-royalBlue transition-colors duration-200">Home</a>
+                <a href="#about" class="hover:text-royalBlue transition-colors duration-200">Our Secret</a>
+                <a href="#builder" class="hover:text-royalBlue transition-colors duration-200">Interactive Lab</a>
+                <a href="#products" class="hover:text-royalBlue transition-colors duration-200">Flavors</a>
+                <a href="#membership" class="hover:text-royalBlue transition-colors duration-200">Club Benefits</a>
+            </nav>
+
+            <!-- Action CTA -->
+            <div class="flex items-center gap-4">
+                <a href="#membership" class="hidden sm:inline-flex items-center gap-2 bg-sunnyYellow hover:bg-yellow-400 text-royalBlue font-bold py-2.5 px-6 rounded-full shadow-yellow-glow transition-all duration-300 hover:scale-[1.03] active:scale-[0.98]">
+                    <i data-lucide="sparkles" class="w-4 h-4"></i>
+                    Join Membership
+                </a>
+                <button id="mobileMenuBtn" class="md:hidden p-2 text-slate-600 hover:text-royalBlue transition-colors" aria-label="Toggle Menu">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
         </div>
-      </div>
 
-    </div>
-  </section>
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-blue-50 px-6 py-6 absolute w-full left-0 shadow-lg flex flex-col gap-4">
+            <a href="#hero" class="mobile-link text-lg font-medium text-slate-700 hover:text-royalBlue py-2">Home</a>
+            <a href="#about" class="mobile-link text-lg font-medium text-slate-700 hover:text-royalBlue py-2">Our Secret</a>
+            <a href="#builder" class="mobile-link text-lg font-medium text-slate-700 hover:text-royalBlue py-2">Interactive Lab</a>
+            <a href="#products" class="mobile-link text-lg font-medium text-slate-700 hover:text-royalBlue py-2">Flavors</a>
+            <a href="#membership" class="mobile-link text-lg font-medium text-slate-700 hover:text-royalBlue py-2">Club Benefits</a>
+            <a href="#membership" class="mobile-link inline-flex items-center justify-center gap-2 bg-sunnyYellow text-royalBlue font-bold py-3 rounded-full mt-2 shadow-sm">
+                <i data-lucide="sparkles" class="w-4 h-4"></i>
+                Join Membership
+            </a>
+        </div>
+    </header>
 
-  <!-- 7. CTA SECTION -->
-  <section class="py-24 relative overflow-hidden bg-gradient-to-b from-[#0C0907] via-neutral-950 to-darkbg">
-    <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
-      <span class="text-xs tracking-[0.3em] font-semibold text-amber-100 uppercase mb-4 block">Your Next Late-Night Sanctuary</span>
-      <h2 class="text-4xl sm:text-6xl font-bold font-syne text-white mb-6 leading-tight">Your next coffee fix starts here.</h2>
-      <p class="text-neutral-400 font-light max-w-xl mx-auto mb-10 text-sm sm:text-base leading-relaxed">
-        Let’s make tonight exceptionally delicious. Claim your slow-fermented donut bundle or craft-brewed espresso from Caah’s.
-      </p>
+    <!-- Hero Section -->
+    <section id="hero" class="relative pt-10 pb-20 lg:py-24 overflow-hidden bg-gradient-to-b from-white via-blue-50/20 to-white">
+        <!-- Background decorative elements representing sweet milk splash and powder dusting -->
+        <div class="absolute inset-0 pointer-events-none overflow-hidden z-0">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-royalBlue/5 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-sunnyYellow/10 rounded-full blur-3xl"></div>
+            <!-- Milk drip vectors simulated with styling -->
+            <div class="absolute top-0 right-1/4 w-32 h-64 bg-gradient-to-b from-white to-transparent opacity-80 rounded-b-full"></div>
+        </div>
 
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="https://linktr.ee" target="_blank" rel="noopener" class="w-full sm:w-auto px-8 py-4 bg-amber-100 hover:bg-white text-darkbg text-sm font-bold tracking-wider rounded-xl transition-all text-center">
-          Order Delivery Now
-        </a>
-        <a href="#menu" class="w-full sm:w-auto px-8 py-4 bg-neutral-900/60 hover:bg-neutral-800 text-cream text-sm font-medium tracking-wider rounded-xl border border-neutral-800 transition-all text-center">
-          Browse Menu Selection
-        </a>
-      </div>
-    </div>
-  </section>
+        <div class="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <!-- Hero Content -->
+            <div class="space-y-6 text-center lg:text-left">
+                <div class="inline-flex items-center gap-2 bg-blue-50 border border-blue-100/60 px-4 py-2 rounded-full text-royalBlue font-bold text-sm">
+                    <span class="flex h-2 w-2 relative">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-royalBlue"></span>
+                    </span>
+                    DONUT SUSU VIRAL & LEGENDARY
+                </div>
+                
+                <h1 class="text-4xl sm:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.1]">
+                    Softness that <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-royalBlue to-blue-600">Melts in Your Mouth</span>
+                </h1>
+                
+                <p class="text-lg text-slate-600 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                    Savor CAAH'S Signature <strong class="text-royalBlue font-semibold">Donut Susu</strong>—expertly handcrafted, impossibly fluffy, and lavishly coated in sweet snow-white premium milk powder. A taste of absolute creamy heaven.
+                </p>
 
-  <!-- 8. MINIMALIST BRAND FOOTER -->
-  <footer class="py-12 bg-[#0C0907] border-t border-neutral-900/60">
-    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
-      
-      <!-- Left: Copyright and Small Editorial Tagline -->
-      <div class="text-center md:text-left space-y-2">
-        <h3 class="font-syne text-lg font-bold text-white">Caah's Donut & Coffee</h3>
-        <p class="text-[11px] text-neutral-500 tracking-wider">Shah Alam’s Premium Late-Night Donut & Specialty Coffee. © 2026. All Rights Reserved.</p>
-      </div>
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                    <a href="#products" class="w-full sm:w-auto text-center bg-royalBlue hover:bg-deepBlue text-white font-bold px-8 py-4 rounded-full shadow-donut hover:shadow-donut-hover transition-all duration-300 hover:scale-[1.02]">
+                        Order Box Now
+                    </a>
+                    <a href="#builder" class="w-full sm:w-auto text-center inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-royalBlue font-bold px-8 py-4 rounded-full border border-blue-100/80 transition-all duration-300">
+                        <i data-lucide="wand-2" class="w-5 h-5"></i>
+                        Custom Dusting Lab
+                    </a>
+                </div>
 
-      <!-- Right: Social Links -->
-      <div class="flex items-center gap-6">
-        <a href="https://instagram.com" target="_blank" class="p-2 text-neutral-400 hover:text-amber-100 transition-colors" aria-label="Follow us on Instagram">
-          <i data-lucide="instagram" class="w-5 h-5"></i>
-        </a>
-        <a href="https://tiktok.com" target="_blank" class="p-2 text-neutral-400 hover:text-amber-100 transition-colors" aria-label="Follow us on TikTok">
-          <i data-lucide="clapperboard" class="w-5 h-5"></i>
-        </a>
-        <a href="https://linktr.ee" target="_blank" class="p-2 text-neutral-400 hover:text-amber-100 transition-colors" aria-label="Linktree integration">
-          <i data-lucide="link" class="w-5 h-5"></i>
-        </a>
-      </div>
+                <!-- Fast Perks -->
+                <div class="grid grid-cols-3 gap-4 pt-8 border-t border-blue-50 max-w-md mx-auto lg:mx-0">
+                    <div>
+                        <div class="text-2xl font-bold text-royalBlue">100%</div>
+                        <div class="text-xs text-slate-500 font-medium">Halal & Premium</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-bold text-royalBlue">Super</div>
+                        <div class="text-xs text-slate-500 font-medium">Fluffy Texture</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-bold text-royalBlue">Daily</div>
+                        <div class="text-xs text-slate-500 font-medium">Freshly Baked</div>
+                    </div>
+                </div>
+            </div>
 
-    </div>
-  </footer>
+            <!-- Hero Image Stack / Showcase -->
+            <div class="relative flex items-center justify-center">
+                <!-- Outer glow and background ring -->
+                <div class="absolute w-[320px] sm:w-[450px] h-[320px] sm:h-[450px] bg-gradient-to-tr from-sunnyYellow/30 to-royalBlue/5 rounded-full -z-10 animate-[spin_40s_linear_infinite]"></div>
+                
+                <!-- Main Promo Image Card with subtle interactive hover -->
+                <div class="relative group bg-white p-4 rounded-[2.5rem] shadow-donut border border-blue-50/60 max-w-md w-full transition-all duration-500 hover:scale-[1.03]">
+                    <div class="relative overflow-hidden rounded-[2rem] bg-amber-50">
+                        <img src="assets/a103dcc65364d96b_donut.jpg" alt="Donut Susu CAAH'S" class="w-full h-80 object-cover transform transition-transform duration-700 group-hover:scale-110">
+                        <!-- Floating Milk Splash Badge -->
+                        <div class="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-sm p-4 rounded-2xl border border-blue-50 flex items-center justify-between">
+                            <div>
+                                <span class="text-xs font-bold text-royalBlue tracking-wider block">BEST SELLER</span>
+                                <span class="text-lg font-bold text-slate-900">Premium Donut Susu</span>
+                            </div>
+                            <div class="bg-sunnyYellow text-royalBlue font-extrabold px-3 py-1.5 rounded-lg text-sm shadow-sm">
+                                4.9 ★ (1k+ reviews)
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Dusting Indicator Decorator -->
+                    <div class="absolute -top-4 -right-4 bg-royalBlue text-white text-xs font-bold py-2 px-4 rounded-full rotate-12 shadow-md flex items-center gap-1">
+                        <i data-lucide="snowflake" class="w-3.5 h-3.5"></i>
+                        Powdered Milk Coating
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Toast system dynamic block -->
-  <div id="toast-notification" class="fixed bottom-6 right-6 z-[9999] glass-panel p-4 rounded-xl border-[#C68B59]/30 translate-y-20 opacity-0 transition-all duration-500 flex items-center gap-3">
-    <div class="w-2 h-2 rounded-full bg-amber-100 animate-pulse"></div>
-    <span id="toast-text" class="text-xs font-medium text-amber-50">Added to midnight cravings</span>
-  </div>
+    <!-- Our Secret Quality Ingredients -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-xs uppercase tracking-widest text-royalBlue font-extrabold mb-3">The Blueprint of Softness</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Why Everyone Craves CAAH'S Donut Susu</h3>
+                <p class="text-slate-600 mt-4">We select only the purest ingredients to construct our legendary melt-in-the-mouth textured donuts.</p>
+            </div>
 
-  <!-- JavaScript module attachment -->
-  <script type="module" src="app.js"></script>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Ingredient 1 -->
+                <div class="bg-blue-50/30 border border-blue-50/80 p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2">
+                    <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-royalBlue shadow-sm mb-6">
+                        <i data-lucide="milk" class="w-8 h-8"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-2">Premium Milk Blend</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Coated lavishly in our custom recipe full-cream milk powder. Zero synthetic sugar, just rich milky creamy sweetness.</p>
+                </div>
 
+                <!-- Ingredient 2 -->
+                <div class="bg-blue-50/30 border border-blue-50/80 p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2">
+                    <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-royalBlue shadow-sm mb-6">
+                        <i data-lucide="smile" class="w-8 h-8"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-2">72-Hour Double Proofing</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Our secret fluffy dough technique guarantees that each donut remains spectacularly pillowy and tender even after hours.</p>
+                </div>
+
+                <!-- Ingredient 3 -->
+                <div class="bg-blue-50/30 border border-blue-50/80 p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2">
+                    <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-royalBlue shadow-sm mb-6">
+                        <i data-lucide="sparkles" class="w-8 h-8"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-2">Artisanal Fresh Craft</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Hand-molded and fried in supreme clean high-smoke oils daily to protect the authentic taste with no greasy residue.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Custom Dusting Lab -->
+    <section id="builder" class="py-20 bg-gradient-to-b from-white to-blue-50/30">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="bg-white rounded-[3rem] border border-blue-100/60 p-8 md:p-12 shadow-donut relative overflow-hidden">
+                <!-- Subtle fluid splash vectors on backdrop -->
+                <div class="absolute -right-16 -top-16 w-64 h-64 bg-sunnyYellow/20 rounded-full blur-2xl"></div>
+                <div class="absolute -left-16 -bottom-16 w-64 h-64 bg-royalBlue/5 rounded-full blur-2xl"></div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+                    <!-- Configurator Left -->
+                    <div class="space-y-6">
+                        <div>
+                            <span class="text-xs uppercase tracking-widest text-royalBlue font-bold bg-blue-50 px-3 py-1.5 rounded-full">Interactive Lab</span>
+                            <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Design Your Ultimate Milk Donut</h3>
+                        </div>
+                        <p class="text-slate-600">
+                            Configure your favorite flavor base, sweetness level, and dusting intensity. See your custom "Donut Susu" transform in real-time below!
+                        </p>
+
+                        <!-- Flavor Selector -->
+                        <div class="space-y-3">
+                            <label class="block text-sm font-bold text-slate-800">Select Core Flavor:</label>
+                            <div class="grid grid-cols-3 gap-3">
+                                <button onclick="setBaseFlavor('Original Milk', '#FFFEEF', '#0F52BA')" class="flavor-btn active border-2 border-royalBlue bg-blue-50/50 py-3 rounded-2xl text-xs font-bold text-slate-800 transition-all">
+                                    Original Susu
+                                </button>
+                                <button onclick="setBaseFlavor('Susu Pandan', '#E2F0D9', '#2E7D32')" class="flavor-btn border-2 border-transparent bg-slate-50 py-3 rounded-2xl text-xs font-bold text-slate-800 transition-all">
+                                    Pandan Susu
+                                </button>
+                                <button onclick="setBaseFlavor('Susu Choco', '#ECE0D1', '#6F4E37')" class="flavor-btn border-2 border-transparent bg-slate-50 py-3 rounded-2xl text-xs font-bold text-slate-800 transition-all">
+                                    Choco Susu
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Dusting Slider -->
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center text-sm">
+                                <span class="font-bold text-slate-800">Milk Dusting Intensity:</span>
+                                <span id="dustingLevelText" class="font-extrabold text-royalBlue">Extreme Snow</span>
+                            </div>
+                            <input type="range" id="dustingSlider" min="1" max="3" value="3" class="w-full accent-royalBlue h-2 bg-slate-100 rounded-lg cursor-pointer">
+                            <div class="flex justify-between text-xs text-slate-400">
+                                <span>Light Dusting</span>
+                                <span>Classic Milk</span>
+                                <span>Extreme Snow Dusting</span>
+                            </div>
+                        </div>
+
+                        <!-- Add Toppings Extra -->
+                        <div class="space-y-3">
+                            <label class="block text-sm font-bold text-slate-800">Extra Sweet Toppings:</label>
+                            <div class="flex flex-wrap gap-2">
+                                <button onclick="toggleTopping('sprinkles')" id="btn-sprinkles" class="topping-btn px-4 py-2 rounded-full border border-slate-200 text-xs font-medium text-slate-600 hover:border-royalBlue hover:text-royalBlue transition-all">
+                                    + Rainbow Sprinkles
+                                </button>
+                                <button onclick="toggleTopping('cheese')" id="btn-cheese" class="topping-btn px-4 py-2 rounded-full border border-slate-200 text-xs font-medium text-slate-600 hover:border-royalBlue hover:text-royalBlue transition-all">
+                                    + Shredded Cheese
+                                </button>
+                                <button onclick="toggleTopping('caramel')" id="btn-caramel" class="topping-btn px-4 py-2 rounded-full border border-slate-200 text-xs font-medium text-slate-600 hover:border-royalBlue hover:text-royalBlue transition-all font-semibold">
+                                    + Salted Caramel Drizzle
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Visualizer Right -->
+                    <div class="flex flex-col items-center justify-center bg-blue-50/20 rounded-[2rem] p-8 border border-blue-50/40 relative">
+                        <!-- Simulated Interactive Donut -->
+                        <div class="relative w-64 h-64 flex items-center justify-center">
+                            <!-- Donut Shadow -->
+                            <div id="visualizerDonutShadow" class="absolute bottom-2 w-48 h-10 bg-slate-900/10 blur-xl rounded-full transition-all duration-300"></div>
+
+                            <!-- Interactive Donut Dough -->
+                            <div id="visualizerDonut" class="w-52 h-52 rounded-full border-[60px] border-[#FFFEEF] shadow-[0_12px_40px_rgba(0,0,0,0.12)] transition-all duration-300 relative flex items-center justify-center animate-[float_6s_ease-in-out_infinite]">
+                                <!-- Milk Dusting Layer -->
+                                <div id="dustingLayer" class="absolute -inset-[62px] rounded-full border-[62px] border-white/90 mix-blend-overlay transition-opacity duration-300"></div>
+                                
+                                <!-- Sprinkles Topping Decorator -->
+                                <div id="sprinklesLayer" class="hidden absolute -inset-[60px] rounded-full border-[60px] border-dashed border-pink-400/80 mix-blend-color-burn"></div>
+                                
+                                <!-- Caramel Drizzle Decorator -->
+                                <div id="caramelLayer" class="hidden absolute -inset-[58px] rounded-full border-[58px] border-amber-600/40 animate-pulse"></div>
+                                
+                                <!-- Shredded Cheese Layer -->
+                                <div id="cheeseLayer" class="hidden absolute -inset-[60px] rounded-full border-[60px] border-dotted border-yellow-300/90"></div>
+                            </div>
+
+                            <!-- Powder Particles -->
+                            <div id="particleDust" class="absolute inset-0 pointer-events-none">
+                                <div class="absolute w-2 h-2 bg-white rounded-full top-6 left-1/2 animate-bounce"></div>
+                                <div class="absolute w-1.5 h-1.5 bg-white rounded-full top-20 right-10 animate-pulse"></div>
+                                <div class="absolute w-2.5 h-2.5 bg-white rounded-full bottom-10 left-12 animate-bounce"></div>
+                            </div>
+                        </div>
+
+                        <!-- Real-time Specs Card -->
+                        <div class="mt-8 bg-white p-4 rounded-2xl shadow-sm border border-blue-50 w-full text-center">
+                            <span class="text-xs text-slate-400 font-semibold block uppercase">CURRENT SELECTION</span>
+                            <span id="currentSelectionTitle" class="text-lg font-bold text-royalBlue">Original Milk Premium</span>
+                            <div class="text-xs text-slate-500 mt-1" id="addonText">No Extra Toppings</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flavor Catalog / Showcase Section -->
+    <section id="products" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
+                <div>
+                    <h2 class="text-xs uppercase tracking-widest text-royalBlue font-extrabold mb-3">Susu Packs & Offerings</h2>
+                    <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Explore Our Signature Boxes</h3>
+                    <p class="text-slate-600 mt-2">Shared with friends, family, or kept entirely to your sweet-loving self.</p>
+                </div>
+                <!-- Box Type Tab Filter -->
+                <div class="flex gap-2 bg-blue-50/50 p-1.5 rounded-full self-start">
+                    <button class="px-5 py-2 rounded-full text-xs font-bold bg-white text-royalBlue shadow-sm">All Boxes</button>
+                    <button class="px-5 py-2 rounded-full text-xs font-bold text-slate-600 hover:text-royalBlue">Signature Susu</button>
+                </div>
+            </div>
+
+            <!-- Product Grids -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Product 1 -->
+                <div class="group bg-white rounded-[2rem] border border-blue-50/60 shadow-donut hover:shadow-donut-hover transition-all duration-300 overflow-hidden flex flex-col">
+                    <div class="relative overflow-hidden bg-amber-50 h-64">
+                        <img src="assets/a103dcc65364d96b_donut.jpg" alt="Signature Donut Susu Pack" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105">
+                        <span class="absolute top-4 left-4 bg-royalBlue text-white text-xs font-bold px-3 py-1 rounded-full">MOST POPULAR</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="text-xl font-bold text-slate-900">Classic Susu Box (6 pcs)</h4>
+                                <span class="text-lg font-extrabold text-royalBlue">Rp 45k</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-4">Our crowd-favorite original powdered milk donuts. Delicately soft, sweet, and unbelievably pillowy.</p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-50 flex items-center justify-between">
+                            <span class="text-xs text-slate-400 font-medium">Included: Snowy Dust Shaker</span>
+                            <button onclick="addToOrder('Classic Susu Box (6 pcs)', 45000)" class="bg-blue-50 hover:bg-royalBlue text-royalBlue hover:text-white p-2.5 rounded-full transition-colors duration-200">
+                                <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="group bg-white rounded-[2rem] border border-blue-50/60 shadow-donut hover:shadow-donut-hover transition-all duration-300 overflow-hidden flex flex-col">
+                    <div class="relative overflow-hidden bg-emerald-50 h-64">
+                        <!-- Custom dynamic visual representation representation -->
+                        <div class="absolute inset-0 bg-gradient-to-tr from-[#E2F0D9] to-emerald-50 flex items-center justify-center p-6">
+                            <div class="w-40 h-40 rounded-full border-[36px] border-[#c5e3b6] shadow-md flex items-center justify-center relative">
+                                <div class="absolute inset-0 bg-white/40 rounded-full blur-xs"></div>
+                            </div>
+                        </div>
+                        <span class="absolute top-4 left-4 bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full">BEST VALUE</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="text-xl font-bold text-slate-900">Combo Pandan Susu (6 pcs)</h4>
+                                <span class="text-lg font-extrabold text-royalBlue">Rp 48k</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-4">Aromatic pandan-infused dough coated with sweet pure milk powder. An authentic local delicacy twist.</p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-50 flex items-center justify-between">
+                            <span class="text-xs text-slate-400 font-medium">Included: Snowy Dust Shaker</span>
+                            <button onclick="addToOrder('Combo Pandan Susu (6 pcs)', 48000)" class="bg-blue-50 hover:bg-royalBlue text-royalBlue hover:text-white p-2.5 rounded-full transition-colors duration-200">
+                                <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="group bg-white rounded-[2rem] border border-blue-50/60 shadow-donut hover:shadow-donut-hover transition-all duration-300 overflow-hidden flex flex-col">
+                    <div class="relative overflow-hidden bg-rose-50 h-64">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-[#f3e3e2] to-rose-50 flex items-center justify-center p-6">
+                            <div class="w-40 h-40 rounded-full border-[36px] border-[#ebccd1] shadow-md flex items-center justify-center relative">
+                                <div class="absolute -inset-1 border-4 border-dashed border-rose-300/40 rounded-full"></div>
+                            </div>
+                        </div>
+                        <span class="absolute top-4 left-4 bg-sunnyYellow text-royalBlue text-xs font-bold px-3 py-1 rounded-full">NEW IN</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="text-xl font-bold text-slate-900">Double Choco Susu Box (6 pcs)</h4>
+                                <span class="text-lg font-extrabold text-royalBlue">Rp 50k</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-4">Dark chocolate filling with extra heavy powder milk topping. Experience supreme savory rich flavor profiles.</p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-50 flex items-center justify-between">
+                            <span class="text-xs text-slate-400 font-medium">Included: Chocolate Sprinkles Pack</span>
+                            <button onclick="addToOrder('Double Choco Susu Box (6 pcs)', 50000)" class="bg-blue-50 hover:bg-royalBlue text-royalBlue hover:text-white p-2.5 rounded-full transition-colors duration-200">
+                                <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Real-time Order Bag Calculator -->
+            <div id="orderBag" class="mt-12 bg-royalBlue text-white p-6 md:p-8 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-6 hidden transition-all duration-300">
+                <div class="flex items-center gap-4">
+                    <div class="p-3 bg-white/10 rounded-2xl">
+                        <i data-lucide="shopping-cart" class="w-6 h-6 text-sunnyYellow"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg" id="bagTitle">Selected: 0 Items</h4>
+                        <p class="text-xs text-white/80">Fresh preparation guaranteed upon final check-out.</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-6">
+                    <div class="text-right">
+                        <span class="text-xs text-white/70 block">TOTAL PRICE</span>
+                        <span class="text-2xl font-black text-sunnyYellow" id="bagTotal">Rp 0</span>
+                    </div>
+                    <button onclick="checkoutOrder()" class="bg-sunnyYellow hover:bg-yellow-400 text-royalBlue font-black py-3 px-8 rounded-full shadow-md transition-transform duration-200 hover:scale-105">
+                        Order Via WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Membership Club Promotion Section -->
+    <section id="membership" class="py-20 bg-gradient-to-b from-white to-blue-50/20 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="bg-gradient-to-br from-royalBlue to-deepBlue rounded-[3rem] text-white p-8 md:p-16 relative overflow-hidden shadow-2xl">
+                <!-- Decorative yellow ring backdrop representing donut & sun -->
+                <div class="absolute -right-24 -bottom-24 w-80 h-80 border-8 border-sunnyYellow/20 rounded-full"></div>
+                <div class="absolute -right-12 -bottom-12 w-80 h-80 border-8 border-white/10 rounded-full"></div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <!-- Left: Promo message -->
+                    <div class="space-y-6">
+                        <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 px-4 py-1.5 rounded-full text-sunnyYellow font-bold text-xs">
+                            <i data-lucide="award" class="w-4 h-4"></i>
+                            CAAH'S EXCLUSIVE MEMBERSHIP
+                        </div>
+                        <h3 class="text-3xl sm:text-5xl font-black leading-tight">
+                            Earn Sweet Points, <br>Eat Free Donut Susu!
+                        </h3>
+                        <p class="text-white/80 leading-relaxed max-w-lg">
+                            Get rewarded for every single bite. Become an insider in the CAAH'S loyalty club and unwrap free birthday boxes, premium merchandise, and unlimited free delivery options.
+                        </p>
+
+                        <!-- Fast Perks Grid -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                            <div class="flex items-start gap-3">
+                                <div class="bg-white/10 p-2 rounded-lg mt-1">
+                                    <i data-lucide="percent" class="w-4 h-4 text-sunnyYellow"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-sm">15% Off Your First Order</h5>
+                                    <p class="text-xs text-white/70">Instant reward after enrollment.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="bg-white/10 p-2 rounded-lg mt-1">
+                                    <i data-lucide="coins" class="w-4 h-4 text-sunnyYellow"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-sm">Collect & Redeem Points</h5>
+                                    <p class="text-xs text-white/70">Every 10 points = 1 free donut.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Membership Signup Interactive Box -->
+                    <div class="bg-white text-slate-800 p-8 rounded-[2rem] shadow-xl border border-white/10 relative">
+                        <h4 class="text-2xl font-extrabold text-slate-900 mb-2">Claim Member Privilege</h4>
+                        <p class="text-sm text-slate-500 mb-6">Enter your phone number or email to join the elite donut circle instantly.</p>
+                        
+                        <form id="membershipForm" class="space-y-4" onsubmit="handleSignup(event)">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wide mb-1">Full Name</label>
+                                <input type="text" required placeholder="John Doe" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:border-royalBlue text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wide mb-1">WhatsApp/Phone Number</label>
+                                <input type="tel" required placeholder="+62 812-3456-7890" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:border-royalBlue text-sm">
+                            </div>
+                            <button type="submit" class="w-full bg-royalBlue hover:bg-deepBlue text-white font-bold py-3.5 rounded-xl transition-all duration-300 shadow-md">
+                                Get Membership QR Code Now
+                            </button>
+                        </form>
+
+                        <!-- Success state placeholder -->
+                        <div id="signupSuccess" class="hidden absolute inset-0 bg-white rounded-[2rem] flex flex-col items-center justify-center p-8 text-center">
+                            <div class="w-16 h-16 bg-emerald-50 rounded-full flex items-center justify-center text-emerald-600 mb-4 animate-bounce">
+                                <i data-lucide="check-circle-2" class="w-10 h-10"></i>
+                            </div>
+                            <h4 class="text-2xl font-bold text-slate-900 mb-1">Welcome to CAAH'S Club!</h4>
+                            <p class="text-sm text-slate-500 mb-6">Your membership card and 15% discount voucher have been dispatched via WhatsApp.</p>
+                            <button onclick="resetSignup()" class="text-xs text-royalBlue font-bold hover:underline">Register another number</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Reviews / Social Proof -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-xs uppercase tracking-widest text-royalBlue font-extrabold mb-3">Community Love</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Sweet Words from Our Milk Lovers</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-slate-50/50 p-8 rounded-3xl border border-slate-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex gap-1 mb-4 text-sunnyYellow">
+                            <i data-lucide="star" class="w-4 h-4 fill-sunnyYellow"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-sunnyYellow"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-sunnyYellow"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-sunnyYellow"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-sunnyYellow"></i>
+                        </div>
+                        <p class="text-slate-600 italic text-sm leading-relaxed mb-6">
+                            "The softest donut susu I've ever eaten! It literally melts right away. The milk powder coating is premium and not overly sweet at all. Absolute perfection!"
+                        </p>
+                    </div>
+                    <div>
+                        <span class="font-bold text-slate-900 block text-sm">Sarah Rahmawati</span>
+                        <span class="text-xs text-slate-400">Verified Milk Donut Fan</span>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-slate-50/50 p-8 rounded-3xl border border-slate-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex gap-1 mb-4 text-sunnyYellow">
+                            <i data-lucide="star" class="w-4 h-4 fill-sunnyYellow"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-sunnyYellow"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-sunnyYellow"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-sunnyYellow"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-sunnyYellow"></i>
+                        </div>
+                        <p class="text-slate-600 italic text-sm leading-relaxed mb-6">
+                            "Discovered CAAH'S last month and now it's a family weekly ritual. The Pandan flavor combined with milk dusting is a genius flavor combo. Must try!"
+                        </p>
+                    </div>
+                    <div>
+                        <span class="font-bold text-slate-900 block text-sm">Andi Wijaya</span>
+                        <span class="text-xs text-slate-400">Verified Collector Member</span>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-slate-50/50 p-8 rounded-3xl border border-slate-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex gap-1 mb-4 text-sunnyYellow">
+                            <i data-lucide="star" class="w-4 h-4 fill-sunnyYellow"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-sunnyYellow"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-sunnyYellow"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-sunnyYellow"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-sunnyYellow"></i>
+                        </div>
+                        <p class="text-slate-600 italic text-sm leading-relaxed mb-6">
+                            "Customizing my milk intensity level in their online lab is super fun. My order came exactly with extra heavy milk dust coating. Best service!"
+                        </p>
+                    </div>
+                    <div>
+                        <span class="font-bold text-slate-900 block text-sm">Diana Clarissa</span>
+                        <span class="text-xs text-slate-400">Verified Donut Maker Fan</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Handle Grids & Footer -->
+    <footer class="bg-white border-t border-slate-100 py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <!-- Branding column -->
+                <div class="md:col-span-2 space-y-4">
+                    <img src="assets/7d54c0f2338e8247_caahs.png" alt="CAAH'S DONUT Logo" class="h-16 w-auto">
+                    <p class="text-sm text-slate-500 max-w-sm leading-relaxed">
+                        Handcrafting happiness, fresh fluffy textures, and supreme powdered milk dustings. Taste the melt-in-the-mouth legendary Donut Susu standard today.
+                    </p>
+                </div>
+
+                <!-- Quick links -->
+                <div>
+                    <h5 class="font-bold text-slate-900 mb-4 text-sm">Navigate</h5>
+                    <ul class="space-y-2 text-sm text-slate-500">
+                        <li><a href="#hero" class="hover:text-royalBlue transition-colors">Home</a></li>
+                        <li><a href="#about" class="hover:text-royalBlue transition-colors">Our Secret</a></li>
+                        <li><a href="#builder" class="hover:text-royalBlue transition-colors">Interactive Lab</a></li>
+                        <li><a href="#products" class="hover:text-royalBlue transition-colors">Flavor Catalog</a></li>
+                        <li><a href="#membership" class="hover:text-royalBlue transition-colors">Membership Club</a></li>
+                    </ul>
+                </div>
+
+                <!-- Social handle grid -->
+                <div>
+                    <h5 class="font-bold text-slate-900 mb-4 text-sm">Follow & Connect</h5>
+                    <p class="text-xs text-slate-500 mb-4">Tag us on your beautiful milky donut moments!</p>
+                    <div class="flex gap-3">
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="p-2.5 bg-blue-50 hover:bg-royalBlue text-royalBlue hover:text-white rounded-xl transition-all" aria-label="Instagram">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="p-2.5 bg-blue-50 hover:bg-royalBlue text-royalBlue hover:text-white rounded-xl transition-all" aria-label="Facebook">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="p-2.5 bg-blue-50 hover:bg-royalBlue text-royalBlue hover:text-white rounded-xl transition-all" aria-label="TikTok">
+                            <i data-lucide="music" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Legals & Copyright -->
+            <div class="pt-8 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
+                <div>
+                    &copy; 2026 CAAH'S DONUT. All Rights Reserved. Crafted Premium.
+                </div>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:underline">Privacy Policy</a>
+                    <a href="#" class="hover:underline">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="app.js"></script>
 </body>
 </html>

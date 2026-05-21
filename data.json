@@ -1,0 +1,105 @@
+{
+  "menu_categories": [
+    { "id": "all", "label": "Full House" },
+    { "id": "signature", "label": "Signature Trio" },
+    { "id": "loaded", "label": "Gourmet Loaded" },
+    { "id": "iced", "label": "Iced Craft" },
+    { "id": "hot", "label": "Hot Rituals" },
+    { "id": "matcha", "label": "Pure Matcha" },
+    { "id": "seasonal", "label": "Midnight Specials" }
+  ],
+  "menu_items": [
+    {
+      "id": "donut-01",
+      "category": "signature",
+      "name": "Classic Golden Glaze",
+      "price": "RM 5.50",
+      "description": "24-hour slow-fermented brioche dough, signature vanilla bean glaze with real Madagascar vanilla caviar.",
+      "tag": "Iconic",
+      "image": "https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      "id": "donut-02",
+      "category": "loaded",
+      "name": "Salted Caramel Pecan",
+      "price": "RM 8.50",
+      "description": "Warm caramel drizzle, toasted premium Georgia pecans, and a pinch of hand-harvested Maldon sea salt flakes.",
+      "tag": "Best Seller",
+      "image": "https://images.unsplash.com/photo-1530610476181-d83430b64dcd?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      "id": "donut-03",
+      "category": "loaded",
+      "name": "Lotus Biscoff Dream",
+      "price": "RM 9.00",
+      "description": "Crushed Belgian Biscoff biscuits layered over warm premium speculoos spread inside and out.",
+      "tag": "Indulgent",
+      "image": "https://images.unsplash.com/photo-1612240498936-65f5101365d2?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      "id": "coffee-01",
+      "category": "iced",
+      "name": "Signature Iced Latte",
+      "price": "RM 12.00",
+      "description": "Double shot of premium house-blend espresso, rich fresh milk, sweetened lightly with local organic palm nectar.",
+      "tag": "Daily Ritual",
+      "image": "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      "id": "coffee-02",
+      "category": "hot",
+      "name": "Spanish Latte",
+      "price": "RM 13.50",
+      "description": "Smooth, creamy texture, sweet condensed milk balanced perfectly with our signature robust dark roast espresso.",
+      "tag": "Smooth",
+      "image": "https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      "id": "matcha-01",
+      "category": "matcha",
+      "name": "Uji Matcha Latte",
+      "price": "RM 14.00",
+      "description": "Ceremonial-grade authentic Uji Matcha whisked precisely, layered beautifully with creamy oat milk.",
+      "tag": "Zen Luxury",
+      "image": "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      "id": "donut-04",
+      "category": "seasonal",
+      "name": "Pandan Kaya Custard",
+      "price": "RM 8.00",
+      "description": "Local signature. Housemade fragrant Pandan-scented silky kaya custard filling, dusted with premium golden sugar.",
+      "tag": "Local Special",
+      "image": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      "id": "coffee-03",
+      "category": "iced",
+      "name": "Midnight Cold Brew",
+      "price": "RM 11.00",
+      "description": "16-hour slow steep single origin coffee. Refreshing notes of dark chocolate and clean stonefruit.",
+      "tag": "Crisp",
+      "image": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&q=80&w=800"
+    }
+  ],
+  "testimonials": [
+    {
+      "name": "Zara Iskandar",
+      "role": "Regular Guest & Creator",
+      "rating": 5,
+      "text": "The Lotus Biscoff donut combined with their Signature Iced Latte is literally the only reason I survive late-night study sessions. The aesthetic is incredibly gorgeous!"
+    },
+    {
+      "name": "Farhan Danial",
+      "role": "Coffee Enthusiast",
+      "rating": 5,
+      "text": "Best dough texture in Shah Alam. Most donuts get dry, but Caah’s stays exceptionally soft even when bought for takeaway. 10/10 would recommend!"
+    },
+    {
+      "name": "Sarah Amina",
+      "role": "Local Foodie",
+      "rating": 5,
+      "text": "They treat donut-making like high art. The caramelization, the balance of sweetness, the chill late-night ambient playlist. It's a gorgeous escape."
+    }
+  ]
+}
